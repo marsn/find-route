@@ -1,4 +1,5 @@
- /**
+<?php
+/**
  * @param $departure string
  * @param $arrival string
  * @param $places array
