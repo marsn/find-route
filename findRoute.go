@@ -26,14 +26,14 @@ func main() {
 }
 
 func FindRoute(departure string, arrival string, roads []Road, route Route) Route {
-	for _, road := range roads {
+	for i, road := range roads {
 		if road.Departure == departure {
 			if road.Arrival == arrival {
-				if road.Price += route.Price; best_route.Price == 0 || best_route.Price > road.Price {
-					best_route = Route{append(route.Roads, road), road.Price}
+				if price := road.Price + route.Price; best_route.Price == 0 || best_route.Price > price {
+					best_route = Route{append(route.Roads, road), price}
 				}
 			} else {
-				FindRoute(road.Arrival, arrival, roads, Route{append(route.Roads, road), route.Price + road.Price})
+				FindRoute(road.Arrival, arrival, roads[i:], Route{append(route.Roads, road), route.Price + road.Price})
 			}
 		}
 	}
