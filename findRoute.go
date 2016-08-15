@@ -30,8 +30,8 @@ func FindRoute(departure string, arrival string, roads []Road, route Route) Rout
 		if road.Departure == departure {
 			if road.Arrival != arrival {
 				FindRoute(road.Arrival, arrival, append(roads[:i], roads[i + 1:]...), Route{append(route.Roads, road), route.Price + road.Price})
-			} else if price := road.Price + route.Price; best_route.Price == 0 || best_route.Price > price {
-				best_route = Route{append(route.Roads, road), price}
+			} else if route.Price += road.Price; best_route.Price == 0 || best_route.Price > route.Price {
+				best_route = Route{append(route.Roads, road), route.Price}
 			}
 		}
 	}
